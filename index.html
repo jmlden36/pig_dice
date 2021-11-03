@@ -25,7 +25,9 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <h2 id="playerTurn"></h2>  
+            <h2 id="playerTurn"></h2>
+            <p><span id="playerOneTurn"><img src =></span></p>
+            <p><span id="playerTwoTurn"><img src =></span></p>  
           </div>
           <p><strong></strong></p>
         </div>
@@ -60,7 +62,9 @@
             <img class="card-img-top" id="roll4" src="">
             <img class="card-img-top" id="roll5" src="">
             <img class="card-img-top" id="roll6" src="">
-            <h3></h3>  
+            <ol id="currentTurnRolls">
+
+            </ol> 
           </div>
           <p><strong></strong></p>
         </div>
@@ -77,9 +81,9 @@
     </div>
       </div>
     </div class="buttons"> 
-      <button type="button" class="btn-success">Roll!</button>
-      <button type="button" class="btn-warning">Hold!</button> 
-      <button type="button" class="btn-info">Start New Game</button> 
+      <button type="button" class="btn-success" id="roll">Roll!</button>
+      <button type="button" class="btn-warning" id="hold">Hold!</button> 
+      <button type="button" class="btn-info" id="newGame">Start New Game</button> 
     </div>
 </body>
 </html>
