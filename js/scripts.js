@@ -43,7 +43,7 @@ Score.prototype.clearCurrentScore = function() {
 function switchTurns(bool){
   let newBool = !bool;
   return newBool;
-}
+}// make a method
 
 // UI logic
 let p1Score = new Score();
