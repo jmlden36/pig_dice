@@ -1,8 +1,8 @@
-# _Project Title_
+# _Pig Dice_
 
-#### By _**Jacob Wilson**_
+#### By _**Jacob Wilson, Ryan Ashby, Matt Luker**_
 
-#### _A brief description of the project._
+#### _Play a game of Pig dice with your friend!_
 
 ## Technologies Used
 
@@ -35,4 +35,4 @@ Leave nothing to chance!
 
 _If you run into any problems or find a bug, would like to reach me for a separate reason, feel free to send me an email @jacobleeeugenewilson@gmail.com with details of your issue._
 
-Copyright (c) _Date_ _Jacob Wilson(s)_
+Copyright (c) _Date_ _Jacob Wilson, Ryan Ashby, Matt Luker_
