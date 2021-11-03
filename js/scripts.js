@@ -5,11 +5,7 @@ function Die(){
 
 Die.prototype.diceRoll = function(){
   let roll = (Math.floor(Math.random() * 6 ) + 1);
-  if(roll === 1){
-    //clearAllRolls(this.rolls);
-  } else {
-    this.rolls.push(roll);
-  }
+  return roll;
 };
 
 Die.prototype.addRolls = function() {
@@ -21,22 +17,56 @@ Die.prototype.addRolls = function() {
 };
 
 Die.prototype.clearAllRolls = function() {
-    this.rolls = [""];
+    this.rolls = [];
 }
+
 
 /*
   functions we want
   
-  addRollsToTotal
-  
-  
-  UI
   removeallrollsfromdom
 
 */
 // Score business logic
-function Score(currentScore, totalScore){
-  this.currentScore = currentScore;
-  this.totalScore = totalScore;
+function Score(){
+  this.currentScore = 0;
+  this.totalScore = 0;
   this.currentRoll = 0;
+  this.turnTotals = [];
 }
+
+Score.prototype.addRollToCurrentScore = function (int){
+  this.currentScore += int;
+};
+
+Score.prototype.addRollsToTotalScore = function() {
+  this.totalScore += this.currentScore;
+};
+
+Score.prototype.clearCurrentScore = function() {
+  this.currentScore = 0;
+};
+
+function switchTurns(bool){
+  let newBool = !bool;
+  return newBool;
+}
+/*
+p1Turn = true;
+Roll button : 
+let roll = die.diceRoll();
+if(roll === 1){
+  die.clearAllRolls;
+  switchTurns(p1Turn);
+} else {
+  die.rolls.push(roll);
+  
+  if(p1Turn){
+    p1Score.addRollToCurrentScore(roll);
+  } else{
+    p2Score.addRollToCurrentScore(roll);
+  }
+}
+
+Hold button:
+*/
