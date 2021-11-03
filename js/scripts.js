@@ -92,7 +92,7 @@ function updateCurrentRollImage(currentRoll){
 }
 /*
 Add functionality for game ending, and game beginning
-Add functionality for the crap talking array
+Add functionality for the crap talking array    setTimeout(function, timeout in ms)
 */ 
 
 //Buttons
