@@ -1,4 +1,20 @@
 body {
   background-color: slategray;
 }
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hold{
+  margin-left: 1em;
+  margin-right: 1em;
+}
 
+.dieImage{
+  display: none;
+}
+
+#baseImage{
+  display: block;
+}

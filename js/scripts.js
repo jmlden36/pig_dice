@@ -21,6 +21,10 @@ Die.prototype.clearAllRolls = function() {
     this.rolls = [];
 };
 
+Die.prototype.switchTurns = function(){
+  this.p1Turn = !this.p1Turn;
+}
+
 // Score business logic
 function Score(){
   this.currentScore = 0;
@@ -40,10 +44,7 @@ Score.prototype.clearCurrentScore = function() {
   this.currentScore = 0;
 };
 
-function switchTurns(bool){
-  let newBool = !bool;
-  return newBool;
-}// make a method
+
 
 // UI logic
 let p1Score = new Score();
@@ -53,9 +54,9 @@ let die = new Die();
 
 function updatePlayerScore(){
   if (die.p1Turn) {
-    $("#player1Score").text = p1Score.totalScore;
+    $("#player1Score").text(p1Score.totalScore);
   } else{
-    $("#player2Score").text = p1Score.totalScore;
+    $("#player2Score").text(p2Score.totalScore);
   }
 }
 function updatePlayerTurn(){
@@ -72,29 +73,65 @@ function updateTurnTotals(){
     let turnTotalsList = $("ol#player1TurnTotals");
     let htmlForTurnTotals = "";
     p1Score.turnTotals.forEach(function(element) {
-      htmlForTurnTotals += "<li id=" +  element.toString() + "</li>";
+      htmlForTurnTotals += "<li>" +  element + "</li>";
+    });
+    turnTotalsList.html(htmlForTurnTotals);
+  } else {
+    let turnTotalsList = $("ol#player2TurnTotals");
+    let htmlForTurnTotals = "";
+    p2Score.turnTotals.forEach(function(element) {
+      htmlForTurnTotals += "<li>" +  element + "</li>";
     });
     turnTotalsList.html(htmlForTurnTotals);
   }
-    // Look at displayContactDetails
+}
 
-    // clear player1 turn totals from DOM
-    // loop through player1s turn totals and add all to #player1TurnTotals
-    //$("#player1TurnTotals").text = p1Score.currentScore
+function updateCurrentTurnRolls(){
+  let currentTurnRolls = $("ol#currentTurnRolls");
+  let htmlForCurrentTurnRolls = "";
+  die.rolls.forEach(function(element) {
+    htmlForCurrentTurnRolls += "<li>" + element + "</li>";
+  });
+  currentTurnRolls.html(htmlForCurrentTurnRolls);
+}
+
+function updateCurrentTotal() {
+  let currentTotal = $("#currentTotal");
+  let htmlForCurrentTotal = "";
+  if (die.p1Turn) {
+    currentTotal.text(p1Score.currentScore);
   } else {
-    // clear player2 turn totals from DOM
-    // loop through player2s turn totals and add all to #player1TurnTotals
-    //$("#player2TurnTotals").text = p2Score.currentScore
+    currentTotal.text(p2Score.currentScore);
   }
 }
-function updateCurrentTurnRolls(){
-  // #player1 or #player2 turn score will continue to add rolled numbers as either player continues to push "Roll" until "Hold" is pushed or a "1" is rolled 
-  // #currentTurnRolls
-}
+
 function updateCurrentRollImage(currentRoll){
-  // based on current roll, toggle images to display correct number **use switch statement**
-  //toggle all images off, toggle on based on switch statement
+  $(".dieImage").hide();
+  switch (currentRoll) {
+    case (1):
+      $("#roll1").show();
+      break;
+    case (2):
+      $("#roll2").show();
+      break;
+    case (3):
+      $("#roll3").show();
+      break;
+    case (4):
+      $("#roll4").show();
+      break;
+    case (5):
+      $("#roll5").show();
+      break;
+    case (6):
+      $("#roll6").show();
+      break;  
+    default:
+    console.warn("You Suck At Rolling Dice!");
+  }
 }
+
+function winGame()
 /*
 Add functionality for game ending, and game beginning
 Add functionality for the crap talking array    setTimeout(function, timeout in ms)
@@ -104,6 +141,7 @@ Add functionality for the crap talking array    setTimeout(function, timeout in 
 function attachContactListeners(){
   $("#roll").click(function(){
     let currentRoll = die.diceRoll();
+    updateCurrentRollImage(currentRoll);
     if(die.p1Turn){
       if(currentRoll + p1Score.totalScore >= 100){
         //wingamefunction p1 wins
@@ -113,38 +151,52 @@ function attachContactListeners(){
         //wingamefunction p2 wins
       }
     } 
+    // needs to account for different players
     if(currentRoll === 1){
-    
-      die.clearAllRolls;
-      p2Score.turnTotals.push(0);
-      p2Score.addRollsToTotalScore();
-      p2Score.clearCurrentScore();
-      switchTurns(die.p1Turn);
+      die.clearAllRolls();
+      if (die.p1Turn){
+        p1Score.turnTotals.push(0);
+        p1Score.clearCurrentScore();        
+      } else {
+        p2Score.turnTotals.push(0);
+        p2Score.clearCurrentScore();
+      }
+      updateTurnTotals();
+      updateCurrentTurnRolls();
+      updateCurrentTotal();
+      die.switchTurns();
+      updatePlayerTurn();
     } else {
       die.rolls.push(currentRoll);
       if(die.p1Turn){
         p1Score.addRollToCurrentScore(currentRoll);
-        // call updateScoreUi(#p1Score)
       } else{
         p2Score.addRollToCurrentScore(currentRoll);
-        // call updateScoreUi(#p2Score)
       }
+      updateCurrentTotal();
+      updateCurrentTurnRolls();
     }
   });
 
   $("#hold").click(function(){
     if(die.p1Turn){
       p1Score.turnTotals.push(p1Score.currentScore);
-      p1Score.updateTurnTotals();
+      updateTurnTotals();
       p1Score.addRollsToTotalScore();
+      updatePlayerScore();
       p1Score.clearCurrentScore();
     } else {
       p2Score.turnTotals.push(p2Score.currentScore);
-      p2Score.updateTurnTotals();
+      updateTurnTotals();
       p2Score.addRollsToTotalScore();
+      updatePlayerScore();
       p2Score.clearCurrentScore();
     }
-    switchTurns(die.p1Turn);
+    die.clearAllRolls();
+    updateCurrentTotal()
+    updateCurrentTurnRolls();
+    die.switchTurns();
+    updatePlayerTurn();
   });
 
   $("#newGame").click(function(){
@@ -154,4 +206,5 @@ function attachContactListeners(){
 
 $(document).ready(function(){
   attachContactListeners();
+  updatePlayerTurn();
 });
