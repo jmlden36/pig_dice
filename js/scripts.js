@@ -51,7 +51,6 @@ let p1Score = new Score();
 let p2Score = new Score();
 let die = new Die();
 
-
 function updatePlayerScore(){
   if (die.p1Turn) {
     $("#player1Score").text(p1Score.totalScore);
@@ -59,6 +58,7 @@ function updatePlayerScore(){
     $("#player2Score").text(p2Score.totalScore);
   }
 }
+
 function updatePlayerTurn(){
   if (die.p1Turn) {
     $("#playerTwoTurn").hide();
@@ -68,6 +68,7 @@ function updatePlayerTurn(){
     $("#playerTwoTurn").show();
   }
 }
+
 function updateTurnTotals(){
   if (die.p1Turn) {
     let turnTotalsList = $("ol#player1TurnTotals");
@@ -97,7 +98,6 @@ function updateCurrentTurnRolls(){
 
 function updateCurrentTotal() {
   let currentTotal = $("#currentTotal");
-  let htmlForCurrentTotal = "";
   if (die.p1Turn) {
     currentTotal.text(p1Score.currentScore);
   } else {
@@ -132,12 +132,14 @@ function updateCurrentRollImage(currentRoll){
 }
 
 function winGame(){
-  
+  $(".play-area").hide();
+  $("#win-game").show();
+  if (die.p1Turn) {
+    $("#winning-player").text("Player 1");
+  } else {
+    $("#winning-player").text("Player 2");
+  } 
 }
-/*
-Add functionality for game ending, and game beginning
-Add functionality for the crap talking array    setTimeout(function, timeout in ms)
-*/ 
 
 //Buttons
 function attachContactListeners(){
@@ -146,14 +148,13 @@ function attachContactListeners(){
     updateCurrentRollImage(currentRoll);
     if(die.p1Turn){
       if(currentRoll + p1Score.totalScore >= 100){
-        //wingamefunction p1 wins
+        winGame();
       }
     } else {
       if(currentRoll + p2Score.totalScore >= 100){
-        //wingamefunction p2 wins
+        winGame();
       }
     } 
-    // needs to account for different players
     if(currentRoll === 1){
       die.clearAllRolls();
       if (die.p1Turn){
@@ -210,3 +211,14 @@ $(document).ready(function(){
   attachContactListeners();
   updatePlayerTurn();
 });
+
+/*
+Things we want to add:
+Add "you win" img - "https://media.istockphoto.com/videos/you-win-game-screen-video-id1185664467?s=640x640"
+Rules Button possible sidebar
+CSS
+high score
+computer player
+2 or more dice
+Add functionality for the crap talking array    setTimeout(function, timeout in ms)
+*/ 

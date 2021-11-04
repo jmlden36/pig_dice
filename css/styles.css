@@ -1,6 +1,9 @@
 body {
   background-color: slategray;
 }
+#win-game{
+  display: none;
+}
 .buttons{
   display: flex;
   justify-content: center;
