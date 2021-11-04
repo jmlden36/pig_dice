@@ -9,83 +9,85 @@
 </head>
 <body>
   <div class="container">
-    <div class="jumbotron">
-      <h1>Play Pig Dice</h1>
-      <p><strong><em>Get Two Players and Start Rolling!</em></strong></p>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h3>Player 1 Score: <span id="player1Score"></span></h3>  
-          </div>
-          <p><strong></strong></p>
-        </div>
+    <div class="play-area">
+      <div class="jumbotron">
+        <h1>Play Pig Dice</h1>
+        <p><strong><em>Get Two Players and Start Rolling!</em></strong></p>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h2><span id="playerOneTurn">Player 1's Turn </span></h2>
-            <h2><span id="playerTwoTurn">Player 2's Turn</span></h2>  
-          </div>
-          <p><strong></strong></p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h3>Player 2 Score: <span id="player2Score"></span></h3>  
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h3>Player 1 Score: <span id="player1Score"></span></h3>  
+            </div>
+            <p><strong></strong></p>
           </div>
         </div>
-      </div>
-    </div>
-    <br>
-    <div class="buttons"> 
-    <button type="button" class="btn btn-success shadow" id="roll">Roll!</button>
-    <button type="button" class="btn btn-warning shadow" id="hold">Hold!</button> 
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h3>Player 1 Turn Totals: </h3>  
-              <ol id="player1TurnTotals">
-              </ol>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h2><span id="playerOneTurn">Player 1's Turn </span></h2>
+              <h2><span id="playerTwoTurn">Player 2's Turn</span></h2>  
+            </div>
+            <p><strong></strong></p>
           </div>
-          <p><strong></strong></p>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <img class="card-img-top dieImage" id="baseImage" src="https://cdn0.iconfinder.com/data/icons/everyday-objects-1/128/dice-512.png">
-            <img class="card-img-top dieImage" id="roll1" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-one-play-die-dice-512.png">
-            <img class="card-img-top dieImage" id="roll2" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-play-game-die-two-512.png">
-            <img class="card-img-top dieImage" id="roll3" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-play-three-die-dice-512.png">
-            <img class="card-img-top dieImage" id="roll4" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-four-play-die-dice-512.png">
-            <img class="card-img-top dieImage" id="roll5" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/dice-gambling-game-play-die-five-512.png">
-            <img class="card-img-top dieImage" id="roll6" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-six-play-die-dice-512.png">
-            <h3 class="card-title">Current Total: <span id="currentTotal"></span></h3>
-            <h3>Rolls: </h3>  
-            <ol id="currentTurnRolls">
-            </ol> 
-          </div>
-          <p><strong></strong></p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h3>Player 2 Turn Totals: </h3>  
-              <ol id="player2TurnTotals">
-              </ol>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h3>Player 2 Score: <span id="player2Score"></span></h3>  
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <br>
+      <div class="buttons"> 
+      <button type="button" class="btn btn-success shadow" id="roll">Roll!</button>
+      <button type="button" class="btn btn-warning shadow" id="hold">Hold!</button> 
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h3>Player 1 Turn Totals: </h3>  
+                <ol id="player1TurnTotals">
+                </ol>
+            </div>
+            <p><strong></strong></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top dieImage" id="baseImage" src="https://cdn0.iconfinder.com/data/icons/everyday-objects-1/128/dice-512.png">
+              <img class="card-img-top dieImage" id="roll1" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-one-play-die-dice-512.png">
+              <img class="card-img-top dieImage" id="roll2" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-play-game-die-two-512.png">
+              <img class="card-img-top dieImage" id="roll3" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-play-three-die-dice-512.png">
+              <img class="card-img-top dieImage" id="roll4" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-four-play-die-dice-512.png">
+              <img class="card-img-top dieImage" id="roll5" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/dice-gambling-game-play-die-five-512.png">
+              <img class="card-img-top dieImage" id="roll6" src="https://cdn0.iconfinder.com/data/icons/leisure-and-entertainment-1/64/gambling-game-six-play-die-dice-512.png">
+              <h3 class="card-title">Current Total: <span id="currentTotal"></span></h3>
+              <h3>Rolls: </h3>  
+              <ol id="currentTurnRolls">
+              </ol> 
+            </div>
+            <p><strong></strong></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h3>Player 2 Turn Totals: </h3>  
+                <ol id="player2TurnTotals">
+                </ol>
+            </div>
+          </div>
+        </div>
+      </div>
     <hr>
+    </div>
     <button type="button" class="btn btn-info shadow" id="newGame">Start New Game</button> 
-</div>    
+  </div>    
 </body>
 </html>

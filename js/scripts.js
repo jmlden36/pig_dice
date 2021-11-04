@@ -131,7 +131,9 @@ function updateCurrentRollImage(currentRoll){
   }
 }
 
-function winGame()
+function winGame(){
+  
+}
 /*
 Add functionality for game ending, and game beginning
 Add functionality for the crap talking array    setTimeout(function, timeout in ms)
