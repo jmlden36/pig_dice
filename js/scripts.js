@@ -52,16 +52,14 @@ let die = new Die();
 
 
 function updatePlayerScore(){
-  if (die.p1turn) {
+  if (die.p1Turn) {
     $("#player1Score").text = p1Score.totalScore;
   } else{
     $("#player2Score").text = p1Score.totalScore;
   }
 }
-
-
 function updatePlayerTurn(){
-  if (die.p1turn) {
+  if (die.p1Turn) {
     $("#playerTwoTurn").hide();
     $("#playerOneTurn").show();
   } else {
@@ -70,14 +68,21 @@ function updatePlayerTurn(){
   }
 }
 function updateTurnTotals(){
-  if (die.p1turn) {
+  if (die.p1Turn) {
+    let turnTotalsList = $("ol#player1TurnTotals");
+    let htmlForTurnTotals = "";
+    p1Score.turnTotals.forEach(function(element) {
+      htmlForTurnTotals += "<li id=" +  element.toString() + "</li>";
+    });
+    turnTotalsList.html(htmlForTurnTotals);
+  }
     // Look at displayContactDetails
 
-    // clear player1 turn totals
+    // clear player1 turn totals from DOM
     // loop through player1s turn totals and add all to #player1TurnTotals
     //$("#player1TurnTotals").text = p1Score.currentScore
   } else {
-    // clear player1 turn totals
+    // clear player2 turn totals from DOM
     // loop through player2s turn totals and add all to #player1TurnTotals
     //$("#player2TurnTotals").text = p2Score.currentScore
   }
@@ -129,11 +134,13 @@ function attachContactListeners(){
 
   $("#hold").click(function(){
     if(die.p1Turn){
-      p1Score.turnTotals.push(currentScore);
+      p1Score.turnTotals.push(p1Score.currentScore);
+      p1Score.updateTurnTotals();
       p1Score.addRollsToTotalScore();
       p1Score.clearCurrentScore();
     } else {
-      p2Score.turnTotals.push(currentScore);
+      p2Score.turnTotals.push(p2Score.currentScore);
+      p2Score.updateTurnTotals();
       p2Score.addRollsToTotalScore();
       p2Score.clearCurrentScore();
     }
