@@ -22,4 +22,4 @@ Die.prototype.clearAllRolls = function() {
 
 Die.prototype.switchTurns = function(){
   this.p1Turn = !this.p1Turn;
-}
+};

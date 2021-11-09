@@ -12,8 +12,17 @@ describe('Die', () => {
     expect(Die.prototype.diceRoll()).toBeGreaterThan(0);
   });
   test('should return the sum of this.rolls[]', () => {
-  const newDie = new Die();
-  newDie.rolls = [1,2,3]
-  expect(newDie.addRolls()).toEqual(9);
+    const newDie = new Die();
+    newDie.rolls = [1,2,3]
+    expect(newDie.addRolls()).toEqual(6);
+  });  
+  test('should return the sum of this.rolls[]', () => {
+    const newDie = new Die();
+    newDie.rolls = [1,2,3]
+    expect(newDie.clearAllRolls()).toEqual();
+  }); 
+  test('should switch the value of p1Turn to false', () => {
+    let newDie = new Die();
+    expect(newDie.switchTurns()).toBe(true);
   });
 });
