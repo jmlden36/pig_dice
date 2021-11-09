@@ -1,53 +1,11 @@
-/*// Dice business logic
-function Die(){
-  this.rolls = [];
-  this.p1Turn = true;
-}
+import $ from 'jquery';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/styles.css';
+import Die from './Die.js'
+import Score from './Score.js'
 
-Die.prototype.diceRoll = function(){
-  let roll = Math.floor(Math.random() * 6 ) + 1;
-  return roll;
-};
-
-Die.prototype.addRolls = function() {
-  let currentTotal = 0;
-  this.rolls.forEach(function(number) {
-    currentTotal += number;
-  });
-  return currentTotal;
-};
-
-Die.prototype.clearAllRolls = function() {
-    this.rolls = [];
-};
-
-Die.prototype.switchTurns = function(){
-  this.p1Turn = !this.p1Turn;
-}
-
-// Score business logic
-function Score(){
-  this.currentScore = 0;
-  this.totalScore = 0;
-  this.turnTotals = [];
-}
-
-Score.prototype.addRollToCurrentScore = function(int){
-  this.currentScore += int;
-};
-
-Score.prototype.addRollsToTotalScore = function() {
-  this.totalScore += this.currentScore;
-};
-
-Score.prototype.clearCurrentScore = function() {
-  this.currentScore = 0;
-};
-
-
-
-// UI logic
-/*let p1Score = new Score();
+let p1Score = new Score();
 let p2Score = new Score();
 let die = new Die();
 
@@ -210,15 +168,4 @@ function attachContactListeners(){
 $(document).ready(function(){
   attachContactListeners();
   updatePlayerTurn();
-});*/
-
-/*
-Things we want to add:
-Add "you win" img - "https://media.istockphoto.com/videos/you-win-game-screen-video-id1185664467?s=640x640"
-Rules Button possible sidebar
-CSS
-high score
-computer player
-2 or more dice
-Add functionality for the crap talking array    setTimeout(function, timeout in ms)
-*/ 
+});
