@@ -23,6 +23,7 @@ describe('Die', () => {
   }); 
   test('should switch the value of p1Turn to false', () => {
     let newDie = new Die();
-    expect(newDie.switchTurns()).toBe(true);
+    newDie.switchTurns();
+    expect(newDie.p1Turn).toEqual(false);
   });
 });
