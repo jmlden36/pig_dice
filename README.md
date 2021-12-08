@@ -15,17 +15,16 @@
 
 ## Description
 
-_A detailed description of the project._
+_Pig Dice is a dice game where two players can face off against each other.  Each player takes turns rolling the dice trying to accumulate the most points each turn with the end goal of reaching 100 points first.  When you roll a 1 you lose that rounds points and it is the other player's turn.  If you don't roll a 1 you can hold to stop rolling and keep your points for that round or you can roll again and risk rolling a 1 and loosing your turn._
 
 ## Setup/Installation Requirements
 
 Leave nothing to chance!
 
-* _You can find the github repository [here]()_
+* _You can find the github repository [here](https://github.com/JLEWilson/pig_dice.git)_
 * _Clone the repository to your computer_
 * _Open the index.html file in a browser_
-* _OR_
-* _You can find the project on github pages[here]()_
+
 
 ## Known Bugs
 
